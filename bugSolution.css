@@ -1,0 +1,26 @@
+/* bugSolution.css */
+
+/* Instead of calc(50% - 10px), use viewport units for more consistent results */
+.container {
+  width: 50vw;
+  margin-left: 5vw;
+  /* Adjust margin as needed */
+}
+
+/* Or, if the exact pixel subtraction is critical, use JavaScript to compute the value at runtime, or pre-calculate and hardcode it using CSS variables (custom properties).*/
+/*Example with CSS variables: */
+:root {
+  --container-width: calc(50% - 10px);
+}
+
+.container-var {
+  width: var(--container-width);
+}
+
+/* Alternative method using JavaScript to dynamically compute the width */
+/*This method is only provided as an alternative. CSS is preferred if possible*/
+<script>
+  const container = document.querySelector('.container-js');
+  const windowWidth = window.innerWidth;
+  container.style.width = `${windowWidth * 0.5 - 10}px`;
+</script>
